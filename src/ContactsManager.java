@@ -1,7 +1,4 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -33,6 +30,21 @@ public class ContactsManager {
             e.printStackTrace();
         }
         return "Hey";
+    }
+
+    public static void parseFile(String fileName,String searchStr) {
+        try{
+
+        Scanner scan = new Scanner(new File(fileName));
+        while(scan.hasNext()){
+            String line = scan.nextLine().toLowerCase().toString();
+            if(line.contains(searchStr)){
+                System.out.println(line);
+            }
+        }
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -74,7 +86,11 @@ public class ContactsManager {
 
 
         } else if (userInput.equals("3")){
-            System.out.println("search a contact by name");
+            System.out.println("What would you like to search for?");
+            Scanner scanner = new Scanner(System.in);
+            String searchInput = scanner.nextLine();
+            System.out.println();
+            parseFile("contacts.txt", searchInput);
         } else if (userInput.equals("4")){
             System.out.println("delete something");
         } else if (userInput.equals("5")){
