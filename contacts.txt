@@ -4,5 +4,5 @@ Keanu Reeves | 1231231234
 Margot Robbie | 2342342345
 Leonardo DiCaprio | 3453453456
 Susan Lin | 8675309
-Peter Hollman | 7980809.0
-Robert Downey Jr | 8.90779897E8
+Peter Hollman | 7980809
+Robert Downey Jr | 879787587
