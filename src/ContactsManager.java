@@ -26,7 +26,7 @@ public class ContactsManager {
         catch(IOException e){
             e.printStackTrace();
         }
-        return "";
+        return "Hi";
     }
 
 
