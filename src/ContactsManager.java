@@ -1,4 +1,6 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -32,41 +34,71 @@ public class ContactsManager {
         }
         return "Hey";
     }
+//    public static void usingBufferedWriter() {
+//        try{
+//
+//
+//        BufferedWriter writer = new BufferedWriter(
+//                new FileWriter("./contacts.txt", true)
+//        );
+//        writer.newLine();
+//        writer.write(userAdd);
+//        writer.close();
+//        }
+//        catch (IOException e){
+//            e.printStackTrace();
+//        }
+//    }
 
-    public static String addToList(){
-        Files.write(
-                Paths.get(contactsPath), Arrays.listOf(contactList), StandardOpenOption.APPEND
-        );
-    }
 
 
     public static void main(String[] args) {
 
 //        ---------added enter-----------
 
-        System.out.println("1. View contacts.\n" +
-                "2. Add a new contact.\n" +
-                "3. Search a contact by name.\n" +
-                "4. Delete an existing contact.\n" +
-                "5. Exit.\n" +
-                "Enter an option (1, 2, 3, 4 or 5):");
+
+        boolean keepGoing= true;
         Scanner scan = new Scanner(System.in);
-        int userInput = scan.nextInt();
-
-
-        if(userInput==1){
+        do {
+            System.out.println("1. View contacts.\n" +
+                    "2. Add a new contact.\n" +
+                    "3. Search a contact by name.\n" +
+                    "4. Delete an existing contact.\n" +
+                    "5. Exit.\n" +
+                    "Enter an option (1, 2, 3, 4 or 5):");
+        String userInput = scan.nextLine();
+        if(userInput.equals("1")){
             list();
-        } else if (userInput == 2){
-            Scanner sc =new Scanner(System.in);
+        } else if (userInput.equals("2")){
+            System.out.println("Please enter the name of the contact");
+            Scanner sc = new Scanner(System.in);
             String userAdd= sc.nextLine();
+            System.out.println("Please enter the phone number of the contact");
+            double userPhoneNumber = sc.nextDouble();
+            try{
+                BufferedWriter writer = new BufferedWriter(
+                        new FileWriter("./contacts.txt", true)
+                );
+                writer.newLine();
+                writer.write(userAdd + " | " + userPhoneNumber);
+                writer.close();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
 
-        } else if (userInput == 3){
+
+        } else if (userInput.equals("3")){
             System.out.println("search a contact by name");
-        } else if (userInput == 4){
+        } else if (userInput.equals("4")){
             System.out.println("delete something");
-        } else if (userInput ==5){
-            System.out.println("exit");
+        } else if (userInput.equals("5")){
+            keepGoing=false;
+        }else{
+            System.out.println("Bye");
         }
+        }while(keepGoing);
+
 
 
     }
