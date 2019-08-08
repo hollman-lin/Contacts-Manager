@@ -34,21 +34,6 @@ public class ContactsManager {
         }
         return "Hey";
     }
-//    public static void usingBufferedWriter() {
-//        try{
-//
-//
-//        BufferedWriter writer = new BufferedWriter(
-//                new FileWriter("./contacts.txt", true)
-//        );
-//        writer.newLine();
-//        writer.write(userAdd);
-//        writer.close();
-//        }
-//        catch (IOException e){
-//            e.printStackTrace();
-//        }
-//    }
 
 
 
