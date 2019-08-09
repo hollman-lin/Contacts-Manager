@@ -38,7 +38,7 @@ public class ContactsManager {
 
         Scanner scan = new Scanner(new File(fileName));
         while(scan.hasNext()){
-            String line = scan.nextLine().toLowerCase().toString();
+            String line = scan.nextLine().toLowerCase();
             if(line.contains(searchStr)){
                 System.out.println(line);
             }
@@ -74,19 +74,31 @@ public class ContactsManager {
             System.out.println("Please enter the phone number of the contact");
 
             String userPhoneNumber = sc.nextLine();
-            String formattedNumber = userPhoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
-            try{
-                BufferedWriter writer = new BufferedWriter(
-                        new FileWriter("./contacts.txt", true)
-                );
-                writer.newLine();
-                writer.write(String.format(userAdd + " | " + formattedNumber));
-                writer.close();
+            if(userPhoneNumber.length() == 10) {
+                String formattedNumber = userPhoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
+                try {
+                    BufferedWriter writer = new BufferedWriter(
+                            new FileWriter("./contacts.txt", true)
+                    );
+                    writer.newLine();
+                    writer.write(String.format(userAdd + " | " + formattedNumber));
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else{
+                String formattedNumber = userPhoneNumber.replaceFirst("(\\d{3})(\\d+)", "$1-$2");
+                try {
+                    BufferedWriter writer = new BufferedWriter(
+                            new FileWriter("./contacts.txt", true)
+                    );
+                    writer.newLine();
+                    writer.write(String.format(userAdd + " | " + formattedNumber));
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-            catch (IOException e){
-                e.printStackTrace();
-            }
-
 
         } else if (userInput.equals("3")){
             System.out.println("What would you like to search for?");
