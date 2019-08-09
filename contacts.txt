@@ -1,8 +1,6 @@
-Name | Phone number
+Name| Phonenumber
 ---------------
-Keanu Reeves | 1231231234
-Margot Robbie | 2342342345
-Leonardo DiCaprio | 3453453456
-Susan Lin | 8675309
-Peter Hollman | 7980809
-Robert Downey Jr | 879787587
+Keanu Reeves|1231231234
+Margot Robbie|2342342345
+Leonardo DiCaprio|3453453456
+Peter Hollman | 373737392
