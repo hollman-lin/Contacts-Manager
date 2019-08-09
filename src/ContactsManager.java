@@ -30,7 +30,7 @@ public class ContactsManager {
         catch(IOException e){
             e.printStackTrace();
         }
-        return "Hey";
+        return "Netflix and Chill";
     }
 
     public static void parseFile(String fileName,String searchStr) {
