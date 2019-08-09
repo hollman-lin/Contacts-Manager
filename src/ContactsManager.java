@@ -105,18 +105,20 @@ public class ContactsManager {
         } else if (userInput.equals("4")){
             System.out.println("What would you like to delete");
             Scanner deleteScanner = new Scanner(System.in);
-            String deleteInput = deleteScanner.nextLine().toLowerCase();
+            String deleteInput = deleteScanner.nextLine();
             try{
 
-            String charset = "UTF-8";
+
             File file = new File("contacts.txt");
             File temp = File.createTempFile("file", ".txt", file.getParentFile());
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset));
-            PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(temp), charset));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+            PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(temp)));
             for (String line; (line = reader.readLine()) != null;) {
-                line = line.replace(deleteInput, "");
-                writer.println(line);
+                if(!line.contains(deleteInput)) {
+                    writer.println(line);
+                }
+
             }
             reader.close();
             writer.close();
