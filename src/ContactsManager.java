@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class ContactsManager {
 
@@ -71,13 +72,15 @@ public class ContactsManager {
             Scanner sc = new Scanner(System.in);
             String userAdd= sc.nextLine();
             System.out.println("Please enter the phone number of the contact");
-            double userPhoneNumber = sc.nextDouble();
+
+            String userPhoneNumber = sc.nextLine();
+            String formattedNumber = userPhoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
             try{
                 BufferedWriter writer = new BufferedWriter(
                         new FileWriter("./contacts.txt", true)
                 );
                 writer.newLine();
-                writer.write(userAdd + " | " + userPhoneNumber);
+                writer.write(String.format(userAdd + " | " + formattedNumber));
                 writer.close();
             }
             catch (IOException e){

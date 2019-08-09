@@ -1,6 +1,7 @@
 Name| Phonenumber
 ---------------
-Keanu Reeves|1231231234
-Margot Robbie|2342342345
-Leonardo DiCaprio|3453453456
-Peter Hollman | 373737392
+Keanu Reeves| (123) 123-1234
+Margot Robbie| (234) 234-2345
+Leonardo DiCaprio| (432) 345-3453
+Peter Hollman | (225) 243-9876
+Lin Manuel Miranda | (123) 456-7890
