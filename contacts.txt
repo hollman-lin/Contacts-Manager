@@ -5,3 +5,5 @@ Margot Robbie| (234) 234-2345
 Leonardo DiCaprio| (432) 345-3453
 Peter Hollman | (225) 243-9876
 Lin Manuel Miranda | (123) 456-7890
+Susan Lin | (234) 156-7890
+Daniel Fryar | 123-4567

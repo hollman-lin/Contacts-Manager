@@ -86,7 +86,7 @@ public class ContactsManager {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            } else{
+            } else if(userPhoneNumber.length() == 7){
                 String formattedNumber = userPhoneNumber.replaceFirst("(\\d{3})(\\d+)", "$1-$2");
                 try {
                     BufferedWriter writer = new BufferedWriter(
@@ -94,6 +94,17 @@ public class ContactsManager {
                     );
                     writer.newLine();
                     writer.write(String.format(userAdd + " | " + formattedNumber));
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else{
+                try {
+                    BufferedWriter writer = new BufferedWriter(
+                            new FileWriter("./contacts.txt", true)
+                    );
+                    writer.newLine();
+                    writer.write(String.format(userAdd + " | " + userPhoneNumber));
                     writer.close();
                 } catch (IOException e) {
                     e.printStackTrace();
